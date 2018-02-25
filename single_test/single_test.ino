@@ -12,17 +12,13 @@ void setup() {
   Serial.print("40% duty cycle\n");
   analogWrite(ha1, x);
   delay(5000);
-  for (int dty = 40; duty <= 80; dty += 5) {
-    x = dty_to_analg(40);
+  for (int dty = 40; dty <= 90; dty += 1) {
+    x = dty_to_analg(dty);
+    analogWrite(ha1, x);
+    delay(200);
+    Serial.print("duty cycle = " + String(dty) + "\n");
   }
-
-  
-  x = dty_to_analg(70);
-  analogWrite(ha1, x);
-  Serial.print("70% duty cycle\n");
-  delay(10000);
   analogWrite(ha1, 0);
-  Serial.print("0% duty cycle\n");
 }
 
 void loop() {
